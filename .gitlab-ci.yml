@@ -1,0 +1,13 @@
+# This file is a template, and might need editing before it works on your project.
+# Lifted from: https://about.gitlab.com/2016/03/10/setting-up-gitlab-ci-for-ios-projects/
+# This file assumes an own GitLab CI runner, setup on an macOS system.
+stages:
+  - build
+
+build_code:
+  stage: build
+  script:
+    - xcodebuild clean -workspace My\ Pulse/My\ Pulse.xcworkspace -scheme My\ Pulse | xcpretty
+    - xcodebuild test -workspace My\ Pulse/My\ Pulse.xcworkspace -scheme My\ Pulse -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.4' | xcpretty -s
+  tags:
+    - ios

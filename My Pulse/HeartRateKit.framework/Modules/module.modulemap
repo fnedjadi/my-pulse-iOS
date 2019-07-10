@@ -1,0 +1,11 @@
+framework module HeartRateKit {
+  umbrella header "HeartRateKit.h"
+
+  export *
+  module * { export * }
+}
+
+module HeartRateKit.Swift {
+    header "HeartRateKit-Swift.h"
+    requires objc
+}
